@@ -16,6 +16,13 @@ if (!Plugin::exist('image')) {
     }, 2.1);
 }
 
+// Get thumbnail from image where possible…
+if (!To::_('thumbnail')) {
+    To::_('thumbnail', function($s) {
+        return $s;
+    });
+}
+
 // Add CSS file to the `<head>` section…
 Asset::set('css/capture.min.css');
 
