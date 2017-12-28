@@ -32,11 +32,11 @@
 }
 :focus {outline:0}
 a {
-  color:#3a2;
+  color:#aaa;
   text-decoration:none;
 }
 a:focus,
-a:active {color:#290}
+a:active {color:#888}
 abbr {
   border:0;
   text-decoration:none;
@@ -80,7 +80,7 @@ article,aside,footer,header,main,nav,section {display:block}
 .textarea {
   display:inline-block;
   vertical-align:middle;
-  background:#3a2;
+  background:#ccc;
   border:0;
   color:#fff;
   width:12em;
@@ -92,7 +92,7 @@ article,aside,footer,header,main,nav,section {display:block}
 .input,
 .select,
 .textarea {
-  background:#ffa;
+  background:#eee;
   color:inherit;
 }
 .button::-moz-focus-inner,
@@ -113,6 +113,7 @@ article,aside,footer,header,main,nav,section {display:block}
 }
 .input[type="checkbox"],
 .input[type="color"],
+.input[type="file"],
 .input[type="radio"],
 .input[type="range"] {
   width:auto;
@@ -141,7 +142,7 @@ label .input + span {
 }
 .button:focus,
 .button:active {
-  background:#390;
+  background:#aaa;
   color:#fff;
 }
 .block {
@@ -188,8 +189,8 @@ label .input + span {
 .xmp {background:#390}
 html {
   background:#fff;
-  font:normal normal 18px/1.5 "Bodoni MT",Didot,"Didot LT STD","Hoefler Text",Century,Garamond,"Times New Roman",Times,serif;
-  color:#000;
+  font:normal normal 18px/1.5 "Times New Roman",Times,serif;
+  color:#666;
 }
 body {margin:5%}
 h1 {font-size:240%}
@@ -235,7 +236,7 @@ blockquote {
 }
 pre code {
   display:block;
-  background:#000;
+  background:#666;
   color:#fff;
   padding:1em;
   white-space:pre-wrap;
@@ -310,7 +311,7 @@ body > header {text-align:center}
   width:50%;
 }
 .page-pages article > figure {
-  margin:1em;
+  margin:1em 1em 0;
   padding:90% 0 5em;
   height:0;
   position:relative;
@@ -329,16 +330,16 @@ body > header {text-align:center}
   height:100%;
 }
 .page-pages article > figure > p > a > img {
-  background:#3a2;
+  background:#eee;
   height:auto;
   min-height:100%;
 }
 .page-pages article > figure > p + p {
   font-size:80%;
   min-width:2em;
-  background:#000;
+  background:#666;
   color:#fff;
-  border-color:#000;
+  border-color:#666;
   top:1em;
   right:1em;
   bottom:auto;

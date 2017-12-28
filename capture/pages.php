@@ -6,7 +6,7 @@
   <article id="page-<?php echo $page->id; ?>">
     <figure>
       <!-- 18 is the font size, 20 is magic number -->
-      <p><a href="<?php echo $page->url; ?>"><img alt="" src="<?php echo To::thumbnail($page->image('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), 18 * 20); ?>"></a></p>
+      <p><a href="<?php echo $page->url; ?>"><img alt="" src="<?php echo To::thumbnail($page->image('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'), $i = 18 * 20, $i); ?>"></a></p>
       <?php if ($c): ?>
       <p><a href="<?php echo $page->url . '#' . $c; ?>"><?php echo $page->comments->text; ?></a></p>
       <?php endif; ?>

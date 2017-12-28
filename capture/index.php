@@ -6,7 +6,7 @@ if (!Plugin::exist('image')) {
         if ($image) {
             return $image; // `image` property already set, skip!
         }
-        if ($s = $that->content) {
+        if ($s = $that->get('content')) {
             if (strpos($s, '<img ') !== false && preg_match('#<img(?:\s[^<>]*?)?\s+src=(["\'])(.+?)\1#', $s, $m)) {
                 return $m[2]; // Return the image URL
             }
@@ -14,13 +14,6 @@ if (!Plugin::exist('image')) {
         // Return the initial value
         return $image;
     }, 2.1);
-}
-
-// Get thumbnail from image where possible…
-if (!To::_('thumbnail')) {
-    To::_('thumbnail', function($s) {
-        return $s;
-    });
 }
 
 // Add CSS file to the `<head>` section…
