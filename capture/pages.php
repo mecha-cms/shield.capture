@@ -1,4 +1,4 @@
-<?php Shield::get('header'); ?>
+<?php get('header'); ?>
 <main>
   <?php echo $message; ?>
   <?php $c = Extend::exist('comment') ? Extend::state('comment', 'anchor', [1 => 'form-comment'])[1] : false; ?>
@@ -18,11 +18,11 @@
           <a href="<?php echo $page->url; ?>"><?php echo $page->title; ?></a>
           <?php endif; ?>
         </h3>
-        <p><?php echo To::snippet($page->description, false, 40); ?></p>
+        <p><?php echo To::snippet($page->description, true, 40); ?></p>
       </figcaption>
     </figure>
   </article>
   <?php endforeach; ?>
 </main>
 <nav><?php echo $pager; ?></nav>
-<?php Shield::get('footer'); ?>
+<?php get('footer'); ?>
