@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="<?php echo $site->direction; ?>" class="page-<?php echo $site->is ?: 'home'; ?>">
+<html dir="<?php echo $site->direction; ?>" class>
   <head>
     <meta charset="<?php echo $site->charset; ?>">
     <meta name="viewport" content="width=device-width">
@@ -11,18 +11,18 @@
     <meta name="robots" content="noindex">
     <?php endif; ?>
     <meta name="author" content="<?php echo $page->author; ?>">
-    <title><?php echo To::text($site->page->title); ?></title>
+    <title><?php echo To::text($site->trace); ?></title>
     <link href="<?php echo $url; ?>/favicon.ico" rel="shortcut icon">
   </head>
   <body>
     <header>
       <h1>
-        <?php if (!$url->path || $url->path === $site->path): ?>
+        <?php if ($site->is('home')): ?>
         <span><?php echo $site->title; ?></span>
         <?php else: ?>
         <a href="<?php echo $url; ?>"><?php echo $site->title; ?></a>
         <?php endif; ?>
       </h1>
       <p><?php echo $site->description; ?></p>
-      <nav><?php get('nav'); ?></nav>
+      <nav><?php Shield::get('nav'); ?></nav>
     </header>

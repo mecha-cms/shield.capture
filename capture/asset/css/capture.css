@@ -1,6 +1,19 @@
+:root {
+  --color:#333;
+  --color--inverse:#fff;
+  --color-a:#777;
+  --color-a--inverse:#000;
+  --color-input:#eee;
+  --color-mark:#ff0;
+  --color-message:#fea;
+  --text:Baskerville,"Baskerville Old Face","Hoefler Text",Garamond,"Times New Roman",serif;
+  --text-title:"Bodoni MT",Didot,"Didot LT STD","Hoefler Text",Century,Garamond,"Times New Roman",serif;
+  --text-code:"Courier New",Courier,"Nimbus Mono L",monospace;
+}
+
 *,
-:before,
-:after {
+::before,
+::after {
   margin:0;
   padding:0;
   font:inherit;
@@ -14,11 +27,11 @@
   color:inherit;
   opacity:.5;
 }
-::-moz-placeholder {
+:-moz-placeholder {
   color:inherit;
   opacity:.5;
 }
-:-moz-placeholder {
+::-moz-placeholder {
   color:inherit;
   opacity:.5;
 }
@@ -26,17 +39,21 @@
   color:inherit;
   opacity:.5;
 }
-:placeholder {
+::-ms-input-placeholder {
   color:inherit;
   opacity:.5;
 }
-:focus {outline:0}
+::placeholder {
+  color:inherit;
+  opacity:.5;
+}
+:focus:not(:focus-visible) {outline:0}
 a {
-  color:#aaa;
+  color:var(--color-a);
   text-decoration:none;
 }
 a:focus,
-a:active {color:#888}
+a:active {color:var(--color-a--inverse)}
 abbr {
   border:0;
   text-decoration:none;
@@ -47,7 +64,7 @@ abbr[title]:hover {border-bottom-color:inherit}
 b,dt,h1,h2,h3,h4,h5,h6,strong,th {font-weight:bold}
 caption,em,figcaption,i,var {font-style:italic}
 caption,figure {text-align:center}
-code,small,sub,sup {font-size:75%}
+small,sub,sup {font-size:75%}
 ins,u {text-decoration:underline}
 del,s {text-decoration:line-through}
 img {
@@ -63,7 +80,7 @@ kbd {
   cursor:pointer;
 }
 mark {
-  background:#ff0;
+  background:var(--color-mark);
   color:inherit;
 }
 sub,sup {
@@ -80,20 +97,14 @@ article,aside,footer,header,main,nav,section {display:block}
 .textarea {
   display:inline-block;
   vertical-align:middle;
-  background:#ccc;
+  background:var(--color-input);
   border:0;
-  color:#fff;
+  color:inherit;
   width:12em;
   height:1.75em;
-  line-height:1.75em;
+  line-height:1.75;
   padding:0 .5em;
   text-align:left;
-}
-.input,
-.select,
-.textarea {
-  background:#eee;
-  color:inherit;
 }
 .button::-moz-focus-inner,
 .input::-moz-focus-inner {
@@ -105,11 +116,18 @@ article,aside,footer,header,main,nav,section {display:block}
 .button {
   text-align:center;
   width:auto;
+  background:var(--color-a);
+  color:var(--color--inverse);
   padding-right:.5em;
   padding-left:.5em;
   -webkit-user-select:none;
   -moz-user-select:none;
   user-select:none;
+}
+.button:focus,
+.button:active {
+  background:var(--color-a--inverse);
+  color:var(--color--inverse);
 }
 .input[type="checkbox"],
 .input[type="color"],
@@ -132,6 +150,11 @@ label .input + span {
   -moz-user-select:none;
   user-select:none;
 }
+form label {
+  display:inline-block;
+  height:1.75em;
+  line-height:1.75;
+}
 .input[type="color"] {
   width:1.75em;
   height:1.75em;
@@ -139,11 +162,6 @@ label .input + span {
 .textarea {
   min-height:6em;
   resize:vertical;
-}
-.button:focus,
-.button:active {
-  background:#aaa;
-  color:#fff;
 }
 .block {
   display:block;
@@ -186,11 +204,10 @@ label .input + span {
 .notes hr {display:none}
 .notes ol {font-size:80%}
 .notes ol p {margin-top:.25em}
-.xmp {background:#390}
 html {
-  background:#fff;
-  font:normal normal 18px/1.5 "Times New Roman",Times,serif;
-  color:#666;
+  background:var(--color--inverse);
+  font:normal normal 18px/1.5 var(--text);
+  color:var(--color);
 }
 body {margin:5%}
 h1 {font-size:240%}
@@ -198,7 +215,10 @@ h2 {font-size:190%}
 h3 {font-size:150%}
 h4 {font-size:120%}
 h6 {font-size:90%}
-h1,h2,h3,h4 {line-height:1}
+h1,h2,h3,h4 {
+  line-height:1;
+  font-family:var(--text-title);
+}
 blockquote,
 dl,
 fieldset,
@@ -248,20 +268,25 @@ fieldset {
   padding:0 1em 1em;
 }
 legend {padding:0 .5em}
-hr:before {content:'\2022\2002\2022\2002\2022'}
-code,.code {font-family:"Courier New",Courier,"Nimbus Mono L",monospace}
+hr::before {content:'\2022\2002\2022\2002\2022'}
+code,.code {
+  font-weight:normal;
+  font-style:normal;
+  font-size:90%;
+  font-family:var(--text-code);
+}
 blockquote {
+  font-size:120%;
   padding-left:1em;
-  border-left:4px solid;
+  border-left:1px solid;
 }
 pre code {
   display:block;
-  background:#666;
-  color:#fff;
+  background:var(--color);
+  color:var(--color--inverse);
   padding:1em;
   white-space:pre-wrap;
   word-wrap:break-word;
-  font-style:normal;
 }
 .table {
   border-collapse:collapse;
@@ -279,12 +304,13 @@ pre code {
 header {margin-bottom:5%}
 footer,
 nav {margin-top:5%}
-article:after,
-footer:after,
-header:after,
-main:after,
-nav:after,
-section:after {
+header + nav {margin-top:0}
+article::after,
+footer::after,
+header::after,
+main::after,
+nav::after,
+section::after {
   content:"";
   display:table;
   clear:both;
@@ -309,37 +335,38 @@ nav li {
 }
 nav li:last-child {margin-right:0}
 main + nav {text-align:center}
+
 article > footer,
 article > header,
 body > header {text-align:center}
-.page-pages body > main {
+.is-pages body > main {
   max-width:42em;
   margin:-1em auto;
 }
-.page-pages article,
-.page-pages article > figure,
-.page-pages article > figure > p,
-.page-pages article > figure > p > a,
-.page-pages article > figure > p > a > img,
-.page-pages article > figure > figcaption,
-.page-pages article > figure > figcaption > h3,
-.page-pages article > figure > figcaption > p {
+.is-pages article,
+.is-pages article > figure,
+.is-pages article > figure > p,
+.is-pages article > figure > p > a,
+.is-pages article > figure > p > a > img,
+.is-pages article > figure > figcaption,
+.is-pages article > figure > figcaption > h3,
+.is-pages article > figure > figcaption > p {
   display:block;
   margin:0;
   padding:0;
   font:inherit;
 }
-.page-pages article {
+.is-pages article {
   float:left;
   width:50%;
 }
-.page-pages article > figure {
+.is-pages article > figure {
   margin:1em 1em 0;
   padding:90% 0 5em;
   height:0;
   position:relative;
 }
-.page-pages article > figure > p {
+.is-pages article > figure > p {
   position:absolute;
   top:0;
   right:0;
@@ -347,22 +374,22 @@ body > header {text-align:center}
   left:0;
   overflow:hidden;
 }
-.page-pages article > figure > p > a,
-.page-pages article > figure > p > a > img {
+.is-pages article > figure > p > a,
+.is-pages article > figure > p > a > img {
   width:100%;
   height:100%;
 }
-.page-pages article > figure > p > a > img {
-  background:#eee;
+.is-pages article > figure > p > a > img {
+  background:var(--color-input);
   height:auto;
   min-height:100%;
 }
-.page-pages article > figure > p + p {
+.is-pages article > figure > p + p {
   font-size:80%;
   min-width:2em;
-  background:#666;
-  color:#fff;
-  border-color:#666;
+  background:var(--color);
+  border-color:var(--color);
+  color:var(--color--inverse);
   top:1em;
   right:1em;
   bottom:auto;
@@ -376,7 +403,7 @@ body > header {text-align:center}
   -moz-transition:all .25s ease-out;
   transition:all .25s ease-out;
 }
-.page-pages article > figure > p + p:before {
+.is-pages article > figure > p + p:before {
   content:"";
   width:0;
   height:0;
@@ -387,12 +414,12 @@ body > header {text-align:center}
   top:100%;
   left:.5em;
 }
-.page-pages article > figure > p + p a {color:inherit}
-.page-pages article > figure:hover > p + p {
+.is-pages article > figure > p + p a {color:inherit}
+.is-pages article > figure:hover > p + p {
   opacity:1;
   visibility:visible;
 }
-.page-pages article > figure > figcaption {
+.is-pages article > figure > figcaption {
   padding:1em 0 .5em;
   position:absolute;
   right:0;
@@ -400,37 +427,37 @@ body > header {text-align:center}
   left:0;
   text-align:left;
 }
-.page-pages article > figure > figcaption > h3 {
+.is-pages article > figure > figcaption > h3 {
   font-weight:bold;
   margin-bottom:.5em;
 }
-.page-pages article > figure > figcaption > h3,
-.page-pages article > figure > figcaption > p {
+.is-pages article > figure > figcaption > h3,
+.is-pages article > figure > figcaption > p {
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
-.page-404 article > section {
+.is-404 article > section {
   text-align:center;
   padding:20% 0;
 }
 .message {
-  background:#fea;
+  background:var(--color-message);
   padding:.5em 1em;
 }
 .messages + article {margin-top:1em}
 
 @media (max-width:840px) {
-  .page-pages body > main {
+  .is-pages body > main {
     max-width:40em;
     margin:0 auto;
   }
-  .page-pages article {
+  .is-pages article {
     float:none;
     width:auto;
     padding:0 0 1em;
   }
-  .page-pages article > figure {
+  .is-pages article > figure {
     padding-top:40%;
     margin:0;
   }

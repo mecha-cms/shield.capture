@@ -3,7 +3,13 @@ title: Capture
 description: A minimal shield for images.
 author: Taufik Nurrohman
 type: Markdown
-version: 1.1.1
+version: 1.2.0
+
+dependency:
+  extension:
+    - image
+  plugin:
+    - image
 ...
 
 Some elements have their own classes to match with the shield appearance:

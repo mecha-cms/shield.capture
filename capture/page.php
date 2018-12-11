@@ -1,4 +1,4 @@
-<?php get('header'); ?>
+<?php Shield::get('header'); ?>
 <main>
   <?php echo $message; ?>
   <article id="page-<?php echo $page->id; ?>">
@@ -13,11 +13,11 @@
       <?php endif; ?>
     </div>
     <footer>
-      <p><time datetime="<?php echo $page->date->W3C; ?>"><?php echo $page->date->{str_replace('-', '_', $site->language)}; ?></time></p>
+      <p><time datetime="<?php echo $page->time->W3C; ?>"><?php echo $page->time->{strtr($site->language, '-', '_')}; ?></time></p>
     </footer>
   </article>
 </main>
-<?php if (strpos($url->path, '/') !== false): ?>
+<?php if ($site->has('parent')): ?>
 <nav><?php echo $pager; ?></nav>
 <?php endif; ?>
-<?php get('footer'); ?>
+<?php Shield::get('footer'); ?>
