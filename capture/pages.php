@@ -1,7 +1,7 @@
-<?php Shield::get('header'); ?>
+<?php static::header(); ?>
 <?php $c = Extend::exist('comment') ? (Extend::state('comment', 'anchor')[1] ?? 'form-comment') : false; ?>
 <main>
-  <?php echo $message; ?>
+  <?php static::message(); ?>
   <?php foreach ($pages as $page): ?>
   <article id="page-<?php echo $page->id; ?>">
     <figure>
@@ -25,4 +25,4 @@
   <?php endforeach; ?>
 </main>
 <nav><?php echo $pager; ?></nav>
-<?php Shield::get('footer'); ?>
+<?php static::footer(); ?>
