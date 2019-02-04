@@ -13,7 +13,7 @@
       <?php endif; ?>
     </div>
     <footer>
-      <p><time datetime="<?php echo $page->time->W3C; ?>"><?php echo $page->time->{strtr($site->language, '-', '_')}; ?></time></p>
+      <p><time datetime="<?php echo $page->time->ISO8601; ?>"><?php echo $page->time->{strtr($site->language, '-', '_')}; ?></time></p>
     </footer>
   </article>
 </main>
